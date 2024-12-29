@@ -17,4 +17,12 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  server: {
+    proxy: {
+      '/search': {
+        target: 'http://localhost:3030', // Change this to your API's base URL
+        changeOrigin: true,
+      },
+    },
+  },
 })
